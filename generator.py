@@ -3,6 +3,7 @@ import time
 import msvcrt
 dots = ["...", "..", ".", ""]
 n = 2
+custom_word = ""
 def ex():
     print(textwrap.dedent("""
         [CRIT] 0x0042F9A0: Invalid directive passed to input handler.
@@ -29,18 +30,19 @@ def ex():
     print("CONSULT YOUR DEVICE'S MANUAL OR CONTACT TECHNICAL SUPPORT IMMEDIATELY. ABORTING IN 10 seconds!")
     time.sleep(10)
     exit()
-def gen():
-    abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j','k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-        'u', 'v', 'w', 'x', 'y', 'z','!', '"', '#', '$', '%', '&', "'", '(', ')', '*','+', ',', '-', '.', '/', ':', ';', '<', '=', '>',
-        '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|','}', '~', "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+def gen(custom_word):
+    abc = ['g', 'o', '1', 'u', 'z', '@', 'm', 'v', 's', '>', 'j', ':', 'h', 'f', ';', '3', 'p', '7', '#', '0', '4', 'd', 'r', '\\', 'x', 'y', '9', '=', '5', 'b', 't', '2', '^', '!', 'e', '.', 'n', '`', '(', '*', "'", 'i', '-', '[', '|', '+', 'w', '"', 'q', '{', 'a', 'l', 'c', '6', '?', '&', '}', '/', '>', ',', '8', '~', 'k', ']', ')', '<']
     chk = 0 #se poio gramma einai
     mem = ""
-    word = "capten_price2008"
+    if option == "c" or option == "C":
+        word = custom_word
+    else:
+        custom_word = "capten_price2008"
     m = 0
-    while m < len(word):
+    while m < len(custom_word):
         while True:
             let = abc[chk]
-            if let != word[m]:
+            if let != custom_word[m]:
                 print(mem+let)
                 chk +=1
                 time.sleep(0.07)
@@ -49,7 +51,7 @@ def gen():
                 chk = 0
                 m += 1
                 break
-    print("capten_price2008")
+    print(custom_word)
 for i in range(n):
     for anim in dots:
         print(f"Initializing generator{anim}")
@@ -80,12 +82,15 @@ if option == "N" or option == "n":
     exit()
 elif option == "y" or option == "Y":
     print("Welcome to the capten_price2008 generator!")
-    option = input("Begin generating? (Y/N)")
+    option = input("Begin generating? (Y for captenprice_2008, N to abort, C for custom message)")
     if option == "N" or option == "n":
         print("Aborting program...")
         time.sleep(0.5)
     elif option == "Y" or option == "y":
         gen()
+    elif option == "c" or option == "C":
+        custom_word = input("Type custom word.(Non-capital letters only, special characters are allowed.)")
+        gen(custom_word)
     else:
         ex()
 else:
