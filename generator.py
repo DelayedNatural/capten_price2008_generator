@@ -3,6 +3,8 @@ import time
 import msvcrt
 dots = ["...", "..", ".", ""]
 n = 2
+def box_generator(w, l):
+    
 custom_word = ""
 def ex():
     print(textwrap.dedent("""
@@ -82,7 +84,7 @@ if option == "N" or option == "n":
     exit()
 elif option == "y" or option == "Y":
     print("Welcome to the capten_price2008 generator!")
-    option = input("Begin generating? (Y for captenprice_2008, N to abort, C for custom message)")
+    option = input("Begin generating? (Y for captenprice_2008, N to abort, C for custom message, B for 'Box Message')")
     if option == "N" or option == "n":
         print("Aborting program...")
         time.sleep(0.5)
@@ -91,6 +93,10 @@ elif option == "y" or option == "Y":
     elif option == "c" or option == "C":
         custom_word = input("Type custom word.(Non-capital letters only, special characters are allowed.)")
         gen(custom_word)
+    elif option == "b" or option == "c":
+        w = input("Type width of box.")
+        l = input("Type length of box.")
+        box_generator(w, l)
     else:
         ex()
 else:
